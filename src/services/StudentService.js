@@ -32,9 +32,9 @@ export default {
     }
   },
   // eslint-disable-next-line consistent-return
-  async updateStudent(id) {
+  async updateStudent(id, student) {
     try {
-      const response = await Api().put(`students/${id}`);
+      const response = await Api().put(`students/${id}`, student);
       return response.data;
     } catch (error) {
       console.log('Update error', error);

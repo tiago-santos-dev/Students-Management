@@ -6,7 +6,6 @@ const routes = [
   {
     path: '/',
     name: 'Create New Student',
-    // component: () => import('./components/create-student/CreateStudentComponent'),
     component: () => import('../components/create-student/CreateStudentComponent'),
   },
   {

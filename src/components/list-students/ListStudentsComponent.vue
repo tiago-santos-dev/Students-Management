@@ -16,7 +16,7 @@
               <td>{{ student.phone}}</td>
               <td>
                 <router-link
-                to="{ name : 'update', params:{ id: student.id}}"
+                :to="{ name :'Update Student', params:{ id: student.id}}"
                 class="btn btn-primary">
                 Edit</router-link>
                </td>
@@ -50,14 +50,12 @@ export default {
       const response = await StudentService.getStudents();
       this.students = response;
     },
-    async removeStudent(id) {
-      // eslint-disable-next-line no-alert
-      console.log('ok', id);
-      try {
-        const response = await StudentService.deleteStudent(id);
 
+    async removeStudent(id) {
+      try {
+        await StudentService.deleteStudent(this.id);
         // eslint-disable-next-line no-alert
-        // alert(response);
+        alert('Delete on Success');
       } catch (error) {
         // eslint-disable-next-line no-alert
         alert('Failed to delete!');
