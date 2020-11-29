@@ -8,7 +8,7 @@ export default {
       const response = await Api().get('students');
       return response.data;
     } catch (error) {
-      console.log(error);
+      console.log('Listing Error', error);
     }
   },
 
@@ -18,17 +18,17 @@ export default {
       const response = await Api().get(`students/${id}`);
       return response.data;
     } catch (error) {
-      console.log(error);
+      console.log('Listing Error', error);
     }
   },
 
   // eslint-disable-next-line consistent-return
   async createNewStudent(student) {
     try {
-      const response = await Api().post('/student', student);
+      const response = await Api().post('/students', student);
       return response.data;
     } catch (error) {
-      console.log(error);
+      console.log('Register Error', error);
     }
   },
   // eslint-disable-next-line consistent-return
@@ -37,7 +37,7 @@ export default {
       const response = await Api().put(`students/${id}`);
       return response.data;
     } catch (error) {
-      console.log(error);
+      console.log('Update error', error);
     }
   },
 
@@ -47,7 +47,7 @@ export default {
       const response = await Api().delete(`students/${id}`);
       return response.data;
     } catch (error) {
-      console.log(error);
+      console.log('Deletion Error', error);
     }
   },
 

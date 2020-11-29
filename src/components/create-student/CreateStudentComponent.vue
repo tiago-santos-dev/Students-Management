@@ -33,7 +33,7 @@
                       required>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary">Send</button>
+            <button type="submit" @click="submitNewStudent" class="btn btn-primary">Send</button>
           </div>
         </form>
       </div>
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import StudentService from '../../services/StudentService';
+
 export default {
   components: {
     name: 'CreateStudentComponent',
@@ -49,15 +51,23 @@ export default {
   data() {
     return {
       student: {
-        name: '',
-        email: '',
-        phone: '',
+        name: null,
+        email: null,
+        phone: null,
       },
     };
   },
   methods: {
-    handleSubmitForm() {
-
+    async submitNewStudent() {
+      try {
+        await StudentService.createNewStudent(this.student);
+        this.$router.push({
+          name: 'List All Students',
+        });
+      } catch (error) {
+        // eslint-disable-next-line
+        alert('erro inicial', error);
+      }
     },
   },
 };
