@@ -74,9 +74,9 @@ export default {
 
     async updateStudent() {
       // Chamada do service passando as propriedades por meio do 'student' (funciona)
-      await StudentService.updateStudent(this.student);
+      await StudentService.updateStudent(this.student.id, this.student);
       this.$router.push({
-        name: 'list',
+        name: 'List All Students',
       });
     },
   },

@@ -24,7 +24,8 @@
                 <button
                 @click="removeStudent(student.id)"
                 class="btn btn-danger">
-                Delete </button>
+                Delete
+                </button>
               </td>
             </tr>
           </tbody>
@@ -53,9 +54,10 @@ export default {
 
     async removeStudent(id) {
       try {
-        await StudentService.deleteStudent(this.id);
+        await StudentService.deleteStudent(id);
         // eslint-disable-next-line no-alert
         alert('Delete on Success');
+        this.listAllStudents();
       } catch (error) {
         // eslint-disable-next-line no-alert
         alert('Failed to delete!');
